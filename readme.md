@@ -38,18 +38,21 @@ This project demonstrates how to build a neural network **from first principles 
 - Parameters are initialized with **small random values** to break symmetry.
 
 ### Step 3: Forward Propagation
-- **Layer 1:**
-  - \( Z_1 = X \cdot W_1 + b_1 \)
-  - \( A_1 = \text{ReLU}(Z_1) \)
-- **Output Layer:**
-  - \( Z_2 = A_1 \cdot W_2 + b_2 \)
-  - \( \hat{y} = \sigma(Z_2) \)
+
+- **Layer 1**:
+  - `Z1 = X @ W1 + b1`
+  - `A1 = ReLU(Z1)`
+
+- **Output Layer**:
+  - `Z2 = A1 @ W2 + b2`
+  - `y_hat = sigmoid(Z2)`
+
+---
 
 ### Step 4: Loss Computation
-- **Binary Cross-Entropy Loss:**
-  \[
-  L = -\frac{1}{m} \sum \left[ y \log(\hat{y}) + (1 - y)\log(1 - \hat{y}) \right]
-  \]
+
+- **Binary Cross-Entropy Loss**:  
+  `L = -(1/m) * sum( y * log(y_hat) + (1 - y) * log(1 - y_hat) )`
 
 ### Step 5: Backward Propagation
 - Manual derivation of gradients:
